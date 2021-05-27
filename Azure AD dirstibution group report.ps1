@@ -53,7 +53,7 @@ function Invoke-pedRecursion {
  
  
     #print and add Users 
-    $Users = Get-ADGroupMember -Identity $group.name | Where-Object {$_.ObjectClass -eq 'user'}
+    $Users = Get-ADGroupMember -Identity $group.SamAccountName | Where-Object {$_.ObjectClass -eq 'user'}
     ForEach($User in $Users){
         #Print Statements 
         Write-Host "==============================================="
@@ -65,7 +65,7 @@ function Invoke-pedRecursion {
  
  
     #Recursion on each group
-    $childrenGroup = Get-ADGroupMember -Identity $Group.name | Where-Object {$_.ObjectClass -eq 'group'}
+    $childrenGroup = Get-ADGroupMember -Identity $Group.SamAccountName | Where-Object {$_.ObjectClass -eq 'group'}
     ForEach($childG in $childrenGroup){
  
         Invoke-pedRecursion -group $childG -int ($int + 1) -direction ($direction + @{"Level $int" = $childG.Name})
