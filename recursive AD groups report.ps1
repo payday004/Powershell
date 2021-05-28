@@ -3,9 +3,9 @@
 
     <#
     .SYNOPSIS
-        exports CSV report on Azure AD users and groups 
+        exports CSV report on AD users and groups 
     .DESCRIPTION
-        recursively displays groups and users in hierarchy organization of Azure AD
+        recursively displays groups and users in hierarchy organization of AD
     .EXAMPLE
         Get-pedSubgroups
     #>
